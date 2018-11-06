@@ -1,3 +1,3 @@
 class PayerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :items
+  attributes :id, :name, :items, :amount
 end

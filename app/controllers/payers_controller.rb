@@ -18,9 +18,15 @@ class PayersController < ApplicationController
   end
  end
 
+ def destroy
+   @payer = Payer.find(params[:id])
+   @payer.destroy
+   render status: :accepted
+ end
+
  private
 
  def payer_params
-   params.permit(:name)
+   params.permit(:name, :amount)
  end
 end

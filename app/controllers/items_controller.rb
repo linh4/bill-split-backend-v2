@@ -13,17 +13,23 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-   if @item.save
-      render json: @item, status: :accepted
-    else
-      render json: {errors: @item.errors.full_messages}, status: :unprocessible_entity
+    params[:item].each do |item|
+      @item = Item.create(bill_id:params[:bill_id], title: item["title"], price: item["price"])
+      # if @item.save
+         # render json: @item, status: :accepted
+       # else
+         # render json: {errors: @item.errors.full_messages}, status: :unprocessible_entity
+       # end
     end
+    # @items = Item.all.select do |item|
+    #   item.bill_id == params[:bill_id]
+    # end
+    # render json: @items
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
+    @item.update(title: params["title"], price: params["price"])
     if @item.save
       render json: @item, status: :accepted
     else
@@ -40,6 +46,6 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.permit(:bill_id, :title, :price)
+    params.require(:item).permit(:bill_id, item: [:title, :price])
   end
 end
