@@ -20,6 +20,12 @@ class BillsController < ApplicationController
   end
  end
 
+ def destroy
+   @bill = Bill.find(params[:id])
+   @bill.destroy
+   render status: :accepted
+ end
+
  private
 
  def bill_params

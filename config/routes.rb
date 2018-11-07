@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :bills, only: [:index, :show, :update, :create, :destroy]
   resources :items, only: [:index, :show, :update, :create, :destroy]
   resources :payers, only: [:index, :create, :show, :destroy]
+  resources :item_payers, only: [:create, :destroy]
 
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'

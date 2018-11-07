@@ -15,11 +15,6 @@ class ItemsController < ApplicationController
   def create
     params[:item].each do |item|
       @item = Item.create(bill_id:params[:bill_id], title: item["title"], price: item["price"])
-      # if @item.save
-         # render json: @item, status: :accepted
-       # else
-         # render json: {errors: @item.errors.full_messages}, status: :unprocessible_entity
-       # end
     end
     # @items = Item.all.select do |item|
     #   item.bill_id == params[:bill_id]

@@ -1,16 +1,23 @@
 class ItemPayersController < ApplicationController
+
+  skip_before_action :authorized
+
   def create
-    @itemPayer = ItemPayer.new(itemPayer_params)
-   if @itemPayer.save
-      render json: @itemPayer, status: :accepted
-    else
-      render json: {errors: @itemPayer.errors.full_messages}, status: :unprocessible_entity
+    params[:payer_id].each do |id|
+      @itemPayer = ItemPayer.create(item_id: params[:item_id], payer_id: id.to_i)
     end
+  end
+
+  def destroy
+    @itemPayer = ItemPayer.find(params[:id])
+    @itemPayer.destroy
+    render status: :accepted
   end
 
   private
 
-  def
-    params.permit(:item_id, :payer_id)
+  def item_payer_params
+    params.require(:item_payer).permit(:item_id, payer: [:payer_id])
   end
+
 end
