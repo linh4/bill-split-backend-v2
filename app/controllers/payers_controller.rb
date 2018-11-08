@@ -1,4 +1,5 @@
 class PayersController < ApplicationController
+  skip_before_action :authorized
   def index
    @payers = Payer.all
    render json: @payers
