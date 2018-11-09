@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_154006) do
   create_table "bills", force: :cascade do |t|
     t.bigint "user_id"
     t.string "date"
+    t.float "tax", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_bills_on_user_id"

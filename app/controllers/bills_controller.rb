@@ -20,6 +20,16 @@ class BillsController < ApplicationController
   end
  end
 
+ def update
+   @bill = Bill.find(params[:id])
+   @bill.update(tax: params[:tax].to_i)
+   if @bill.save
+     render json: @bill, status: :accepted
+   else
+     render json: {errors: @bill.errors.full_messages}, status: :unprocessible_entity
+   end
+ end
+
  def destroy
    @bill = Bill.find(params[:id])
    @bill.destroy
@@ -29,6 +39,6 @@ class BillsController < ApplicationController
  private
 
  def bill_params
-   params.require(:bill).permit(:user_id, :date)
+   params.require(:bill).permit(:user_id, :date, :tax)
  end
 end
