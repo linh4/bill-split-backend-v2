@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_154006) do
     t.bigint "user_id"
     t.string "date"
     t.float "tax", default: 0.0
+    t.integer "tip", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_bills_on_user_id"
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 2018_11_05_154006) do
 
   create_table "payers", force: :cascade do |t|
     t.string "name"
-    t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

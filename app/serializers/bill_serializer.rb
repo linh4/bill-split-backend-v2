@@ -1,5 +1,5 @@
 class BillSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :date, :items, :user, :payers, :tax
+  attributes :id, :user_id, :date, :items, :user, :payers, :tax, :tip
   has_many :items
 
   def payers

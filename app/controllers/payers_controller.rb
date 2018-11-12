@@ -28,6 +28,6 @@ class PayersController < ApplicationController
  private
 
  def payer_params
-   params.permit(:name, :amount)
+   params.permit(:name)
  end
 end

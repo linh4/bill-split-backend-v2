@@ -22,7 +22,7 @@ class BillsController < ApplicationController
 
  def update
    @bill = Bill.find(params[:id])
-   @bill.update(tax: params[:tax].to_i)
+   @bill.update(date: params[:date], tax: (params["tax"]).to_f, tip: (params["tip"]).to_i)
    if @bill.save
      render json: @bill, status: :accepted
    else
@@ -39,6 +39,6 @@ class BillsController < ApplicationController
  private
 
  def bill_params
-   params.require(:bill).permit(:user_id, :date, :tax)
+   params.require(:bill).permit(:user_id, :date, :tax, :tip)
  end
 end

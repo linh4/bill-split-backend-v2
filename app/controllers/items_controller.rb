@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # byebug
     params[:item].each do |item|
       @item = Item.create(bill_id:params[:bill_id], title: item["title"], price: item["price"])
     end
