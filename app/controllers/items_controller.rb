@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(title: params["title"], price: params["price"])
+    @item.update(title: params["title"], price: params["price"], quantity: params["quantity"].to_i)
     if @item.save
       render json: @item, status: :accepted
     else
@@ -42,6 +42,6 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:bill_id, item: [:title, :price])
+    params.require(:item).permit(:bill_id, item: [:title, :price], :quantity)
   end
 end
