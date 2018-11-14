@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_11_05_154006) do
     t.bigint "bill_id"
     t.string "title"
     t.float "price"
-    t.integer "quantity", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bill_id"], name: "index_items_on_bill_id"
