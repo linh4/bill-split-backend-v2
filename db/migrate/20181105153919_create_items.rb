@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :bill, foreign_key: true
       t.string :title
       t.float :price
-      t.integer :quantity, default: 1
       t.timestamps
     end
   end
