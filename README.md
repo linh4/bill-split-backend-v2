@@ -1,24 +1,29 @@
-# README
+# Split-B App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Split-B is an app that let users split a bill among friends.
+- User can create an account.
+- User can create a bill manually by typing items and prices.
+- User can edit and delete bills and items.
+- User can assign payers for each items.
+- User can keep record of the bill for who pay for what.
+- User can also attach image file of receipts, the app uses an api to read the text and return items and prices based on the receipts. For now, this feature can only works with these images below so please use these images to test that feature. My future plan is to make the feature work with any receipt images.
 
-Things you may want to cover:
+### Run locally:
+Run backend:
+```
+bundle install
+rake db:migrate
+rails s
+```
 
-* Ruby version
+Frontend:
+```
+npm i && npm start
+```
 
-* System dependencies
+### [Frontend](https://github.com/linh4/split-b-front-end)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Future Plans:
+- Add quantity and discount.
+- Add details page of both items and payers in the same page.
+- Work on scan receipt feature so it can scan different receipt
