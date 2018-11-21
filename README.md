@@ -1,6 +1,9 @@
 # Split-B App
 
 Split-B is an app that let users split a bill among friends.
+
+<img src="/Split B Demo 1.png" />  <img src="/Split B Demo 2.png" />
+
 - User can create an account.
 - User can create a bill manually by typing items and prices.
 - User can edit and delete bills and items.
