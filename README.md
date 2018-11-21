@@ -11,6 +11,12 @@ Split-B is an app that let users split a bill among friends.
 - User can keep record of the bill for who pay for what.
 - User can also attach image file of receipts, the app uses an api to read the text and return items and prices based on the receipts. For now, this feature can only works with these images below so please use these images to test that feature. My future plan is to make the feature work with any receipt images.
 
+Receipt 1: <img src="/receipt.jpg" />
+
+Receipt 2: <img src="/receipt (1).jpg" />
+
+Receipt 3: <img src="/receipt (2).jpg" />
+
 ### Run locally:
 Run backend:
 ```
